@@ -67,12 +67,12 @@ If you use HDRTray helper files, place the required HDRTray files in:
 C:\HDRTRAY
 ```
 
-Recommended files:
+Only these files are useful for the optional HDR toggle workflow:
 
 - `HDRTray.exe`
 - `HDRCmd.exe`
-- `set_sdrwhite.exe`
-- `set_maxtml.exe`
+
+This project does not use `set_sdrwhite.exe` or `set_maxtml.exe`.
 
 ## Installation
 
