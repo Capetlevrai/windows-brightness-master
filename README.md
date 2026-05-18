@@ -1,6 +1,6 @@
 # windows-brightness-master
 
-AutoHotkey v2 scripts to control brightness-like behavior on Windows laptops and HDR desktop monitors.
+[AutoHotkey v2](https://www.autohotkey.com/) scripts to control brightness-like behavior on Windows laptops and desktop monitors, with extra helpers for HDR/local dimming issues.
 
 ## Scripts
 
