@@ -124,6 +124,30 @@ Get-AppxPackage -AllUsers Microsoft.XboxGamingOverlay | Remove-AppxPackage
 
 Run that command in an administrator PowerShell only if you intentionally want to remove Xbox Game Bar.
 
+## HDR/hdrScreenshotSafe.ahk
+
+HDR-safe Windows screenshot shortcut.
+
+Use this script when HDR screenshots look wrong, washed out, overexposed, or color-shifted. It turns HDR off before launching the Windows snipping shortcut.
+
+This script is separate from `HDR/hdrToggle.ahk` on purpose:
+
+- `HDR/hdrToggle.ahk` only toggles HDR with `Ctrl+Alt+B`.
+- `HDR/hdrScreenshotSafe.ahk` only prepares screenshots with `Win+Shift+S`.
+
+Hotkeys:
+
+| Hotkey | Action |
+| --- | --- |
+| `Win+Shift+S` | Turn HDR off, wait briefly, then launch Windows snipping |
+
+Installation:
+
+1. Download HDRTray from https://github.com/res2k/HDRTray.
+2. Put `HDRCmd.exe` in `C:\HDRTRAY`.
+3. Copy `HDR/hdrScreenshotSafe.ahk` to `shell:startup`.
+4. Double-click it once, or restart Windows.
+
 ## Startup Folder
 
 Open the Windows Startup folder with:
