@@ -6,7 +6,7 @@
 ; Ctrl+Alt+Down     : increase black overlay
 ; Ctrl+Shift+Alt+Up : increase gamma boost for dark pages
 ; Ctrl+Shift+Alt+Down : decrease gamma boost
-; Ctrl+Alt+0        : reset overlay and gamma
+; Ctrl+Alt+0 or Ctrl+Shift+Alt+0 : reset overlay and gamma
 
 targetMonitor := 1
 dimPercent := 0
@@ -27,6 +27,7 @@ OnExit(ResetGammaOnExit)
 ^!+Up::AdjustGammaBoost(gammaStepPercent)
 ^!+Down::AdjustGammaBoost(-gammaStepPercent)
 ^!0::ResetCorrection()
+^!+0::ResetCorrection()
 
 AdjustDim(delta) {
     global dimPercent, maxDimPercent

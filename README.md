@@ -21,7 +21,7 @@ Hotkeys:
 | `Ctrl+Alt+Down` | Increase black overlay |
 | `Ctrl+Shift+Alt+Up` | Increase gamma boost by `0.5` |
 | `Ctrl+Shift+Alt+Down` | Decrease gamma boost by `0.5` |
-| `Ctrl+Alt+0` | Reset overlay and gamma |
+| `Ctrl+Alt+0` or `Ctrl+Shift+Alt+0` | Reset overlay and gamma |
 
 Notes:
 
@@ -97,7 +97,7 @@ For a desktop HDR monitor:
 
 1. Put HDRTray files in `C:\HDRTRAY` if you use HDR toggling helpers.
 2. Put `Desktop/brightnessDesktop.ahk` in `shell:startup`.
-3. Use `Ctrl+Alt+0` before gaming if you want a fully reset image.
+3. Use `Ctrl+Shift+Alt+0` before gaming if you want a fully reset image.
 4. Use `Ctrl+Shift+Alt+Up/Down` to compensate dark web pages caused by HDR/local dimming.
 
 ## Recommended Laptop Setup
