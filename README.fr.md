@@ -22,6 +22,8 @@ Placez l'outil en ligne de commande HDRTray dans :
 C:\HDRTRAY
 ```
 
+![Fichiers HDRTray dans le disque C](assets/hdrtray.jpg)
+
 Requis pour le script de bascule HDR :
 
 - `HDRCmd.exe`

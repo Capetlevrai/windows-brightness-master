@@ -22,6 +22,8 @@ Put the HDRTray command-line helper in:
 C:\HDRTRAY
 ```
 
+![HDRTray files in C drive](assets/hdrtray.jpg)
+
 Required for the HDR toggle script:
 
 - `HDRCmd.exe`
