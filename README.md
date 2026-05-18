@@ -28,8 +28,6 @@ Optional:
 
 - `HDRTray.exe` if you also want the notification-area icon.
 
-This project does not use `set_sdrwhite.exe`, `set_maxtml.exe`, or Gamma Manager.
-
 ## Desktop/brightnessDesktop.ahk
 
 Desktop monitor visual brightness correction.
