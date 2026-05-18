@@ -1,17 +1,46 @@
 # windows-brightness-master
 
-[AutoHotkey v2](https://www.autohotkey.com/) scripts to control brightness-like behavior on Windows laptops and desktop monitors, with extra helpers for HDR/local dimming issues.
+[AutoHotkey v2](https://www.autohotkey.com/) scripts for Windows brightness, gamma, and HDR shortcuts.
 
-## Scripts
+Each script has a dedicated purpose. Do not mix scripts unless you explicitly want all related hotkeys to run at startup.
 
-### Desktop/brightnessDesktop.ahk
+## Requirements
 
-Designed for a fixed desktop monitor such as the Gigabyte M28U in HDR.
+Install AutoHotkey v2:
 
-It provides two different corrections:
+- https://www.autohotkey.com/
 
-- A black click-through overlay to visually reduce brightness.
-- A gamma boost to lift dark pages when HDR/local dimming makes them too dim.
+For HDR toggling, install HDRTray from the official GitHub repository:
+
+- https://github.com/res2k/HDRTray
+
+Put the HDRTray command-line helper in:
+
+```text
+C:\HDRTRAY
+```
+
+Required for the HDR toggle script:
+
+- `HDRCmd.exe`
+
+Optional:
+
+- `HDRTray.exe` if you also want the notification-area icon.
+
+This project does not use `set_sdrwhite.exe`, `set_maxtml.exe`, or Gamma Manager.
+
+## Desktop/brightnessDesktop.ahk
+
+Desktop monitor visual brightness correction.
+
+Use this script on desktop monitors when hardware brightness control is unavailable or unreliable. It works in SDR and HDR, but gamma behavior can depend on the Windows HDR pipeline, GPU driver, and app/game.
+
+Features:
+
+- Black click-through overlay to visually reduce brightness.
+- Gamma boost to lift dark pages when HDR/local dimming makes them too dim.
+- Gamma reset when the script exits.
 
 Hotkeys:
 
@@ -26,19 +55,28 @@ Hotkeys:
 Notes:
 
 - The overlay is not a hardware brightness change.
-- Gamma boost uses the Windows/GDI gamma ramp. In HDR, some drivers or apps may ignore it.
-- The script resets gamma when it exits.
+- Gamma boost uses the Windows/GDI gamma ramp.
+- Before gaming, use `Ctrl+Shift+Alt+0` if you want a fully reset image.
 
-### Laptop/brightnessLaptop.ahk
+Installation:
 
-Designed only for laptop internal panels.
+1. Copy `Desktop/brightnessDesktop.ahk` to `shell:startup`.
+2. Double-click it once, or restart Windows.
 
-It uses Windows WMI laptop brightness APIs:
+## Laptop/brightnessLaptop.ahk
 
-- `WmiMonitorBrightness`
-- `WmiMonitorBrightnessMethods`
+Laptop internal display brightness only.
 
-It does not touch gamma, overlays, HDR, or external monitor controls.
+Use this script only on laptops with an internal panel exposed through the Windows WMI brightness API.
+
+Features:
+
+- Uses `WmiMonitorBrightness`.
+- Uses `WmiMonitorBrightnessMethods`.
+- Does not touch gamma.
+- Does not create overlays.
+- Does not control HDR.
+- Does not control external monitor brightness.
 
 Hotkeys:
 
@@ -47,62 +85,52 @@ Hotkeys:
 | `Ctrl+Alt+Up` | Laptop brightness +5% |
 | `Ctrl+Alt+Down` | Laptop brightness -5% |
 
-## Requirements
+Installation:
 
-Install AutoHotkey v2:
+1. Copy `Laptop/brightnessLaptop.ahk` to `shell:startup`.
+2. Double-click it once, or restart Windows.
 
-- https://www.autohotkey.com/
+## HDR/hdrToggle.ahk
 
-For HDR desktop workflows, install HDRTray from the official GitHub repository:
+Windows HDR toggle shortcut.
 
-- https://github.com/res2k/HDRTray
+Use this script when you want a direct keyboard shortcut to turn Windows HDR on or off without relying on Xbox Game Bar.
 
-HDRTray is not required by the scripts in this repository, but it is useful for toggling Windows HDR and for command-line HDR helpers.
+This is useful on Windows PCs where Game Bar has been fully disabled or removed, especially if these processes are disabled:
 
-If you use HDRTray helper files, place the required HDRTray files in:
+- `Gamebar.exe`
+- `GameBarFTServer.exe`
 
-```text
-C:\HDRTRAY
+If Game Bar is removed, the usual Windows overlay shortcuts are no longer available. This script keeps HDR toggling available through `HDRCmd.exe` from HDRTray.
+
+Hotkeys:
+
+| Hotkey | Action |
+| --- | --- |
+| `Ctrl+Alt+B` | Toggle Windows HDR on/off |
+
+Installation:
+
+1. Download HDRTray from https://github.com/res2k/HDRTray.
+2. Put `HDRCmd.exe` in `C:\HDRTRAY`.
+3. Copy `HDR/hdrToggle.ahk` to `shell:startup`.
+4. Double-click it once, or restart Windows.
+
+Optional Game Bar removal command:
+
+```powershell
+Get-AppxPackage -AllUsers Microsoft.XboxGamingOverlay | Remove-AppxPackage
 ```
 
-Only these files are useful for the optional HDR toggle workflow:
+Run that command in an administrator PowerShell only if you intentionally want to remove Xbox Game Bar.
 
-- `HDRTray.exe`
-- `HDRCmd.exe`
+## Startup Folder
 
-This project does not use `set_sdrwhite.exe` or `set_maxtml.exe`.
-
-## Installation
-
-1. Install AutoHotkey v2.
-2. Download or clone this repository.
-3. Pick the script for your machine:
-   - Desktop HDR monitor: `Desktop/brightnessDesktop.ahk`
-   - Laptop internal screen: `Laptop/brightnessLaptop.ahk`
-4. Open Windows Run with `Win+R`.
-5. Type:
+Open the Windows Startup folder with:
 
 ```text
+Win+R
 shell:startup
 ```
 
-6. Copy the chosen `.ahk` file into the Startup folder.
-7. Double-click the `.ahk` file once, or restart Windows.
-
-Only put the script you actually need in `shell:startup`.
-
-## Recommended Desktop Setup
-
-For a desktop HDR monitor:
-
-1. Put HDRTray files in `C:\HDRTRAY` if you use HDR toggling helpers.
-2. Put `Desktop/brightnessDesktop.ahk` in `shell:startup`.
-3. Use `Ctrl+Shift+Alt+0` before gaming if you want a fully reset image.
-4. Use `Ctrl+Shift+Alt+Up/Down` to compensate dark web pages caused by HDR/local dimming.
-
-## Recommended Laptop Setup
-
-For a laptop:
-
-1. Put `Laptop/brightnessLaptop.ahk` in `shell:startup`.
-2. Do not use the desktop script unless you specifically want overlay/gamma behavior.
+Copy only the scripts you actually want to run at login.
