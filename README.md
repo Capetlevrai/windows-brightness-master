@@ -1,5 +1,7 @@
 # windows-brightness-master
 
+[Version francaise](README.fr.md)
+
 [AutoHotkey v2](https://www.autohotkey.com/) scripts for Windows brightness, gamma, and HDR shortcuts.
 
 Each script has a dedicated purpose. Do not mix scripts unless you explicitly want all related hotkeys to run at startup.
