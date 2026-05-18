@@ -158,3 +158,5 @@ shell:startup
 ```
 
 Copiez uniquement les scripts que vous voulez vraiment lancer a l'ouverture de session.
+
+![Dossier Startup avec les scripts selectionnes](assets/shell-startup.png)

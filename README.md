@@ -158,3 +158,5 @@ shell:startup
 ```
 
 Copy only the scripts you actually want to run at login.
+
+![Startup folder with selected scripts](assets/shell-startup.png)
