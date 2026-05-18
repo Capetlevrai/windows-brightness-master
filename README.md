@@ -22,8 +22,6 @@ Hotkeys:
 | `Ctrl+Shift+Alt+Up` | Increase gamma boost by `0.5` |
 | `Ctrl+Shift+Alt+Down` | Decrease gamma boost by `0.5` |
 | `Ctrl+Alt+0` | Reset overlay and gamma |
-| `Ctrl+Alt+9` | Set black overlay to `45%` |
-| `Ctrl+Shift+Alt+9` | Set gamma boost to max `5` |
 
 Notes:
 
